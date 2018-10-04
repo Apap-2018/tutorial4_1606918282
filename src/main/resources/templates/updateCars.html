@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title> Update Dealer </title>
+	</head>
+	
+	<body>	
+		<h2> Update Car </h2><br>
+		
+		<div th:each = "car : ${cars}">
+			<form th:action="@{'/car/update/id=' + ${car.id}}" th:object="${car}" method="POST">
+				Brand: <br>
+				<input type = "text" name = "brand" th:value="${car.brand}"/>
+				<br>
+				Type: <br>
+				<input type = "text" name = "type" th:value="${car.type}"/>
+				<br>
+				Price: <br>
+				<input type = "text" name = "price" th:value="${car.price}"/>
+				<br>
+				Amount: <br>
+				<input type = "text" name = "amount" th:value="${car.amount}"/>
+				<br>
+				<button type="submit"> Submit </button>
+				<br><br>
+			</form>
+		</div>
+	</body>
+</html>

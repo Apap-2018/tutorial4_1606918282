@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title> Add Dealer </title>
+	</head>
+	
+	<body>	
+		<h2> Add Dealer </h2>
+		<form th:action="@{/dealer/add}" th:object="${dealer}" method="POST">
+			Alamat: <br>
+			<input type = "text" name = "alamat"/>
+			<br>
+			No. Telp: <br>
+			<input type = "text" name = "noTelp"/>
+			<br><br>
+			<button type="submit">Submit</button>
+		</form><br>
+	</body>
+</html>

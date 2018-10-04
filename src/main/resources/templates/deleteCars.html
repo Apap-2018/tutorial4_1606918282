@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title> Update Car </title>
+	</head>
+	
+	<body>	
+		<h2> Update Car </h2><br>
+		
+		<div th:each = "car : ${cars}">
+			<form th:action="@{'/car/delete/id=' + ${car.id}}" th:object="${car}" method="POST">
+				Brand: <br>
+				<input type = "text" name = "brand" th:value="${car.brand}" disabled/>
+				<br>
+				Type: <br>
+				<input type = "text" name = "type" th:value="${car.type}" disabled/>
+				<br>
+				<button type="submit"> Delete </button>
+				<br><br>
+			</form>
+		</div>
+	</body>
+</html>

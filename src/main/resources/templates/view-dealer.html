@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title> Home </title>
+	</head>
+	
+	<body>
+		<div th:if="${dealerDetail}">
+		     <tr>
+		    	<h3> Alamat :</h3>
+		    	<td th:text="${dealerDetail.alamat}"></td>
+		     </tr><br>
+		     
+		     <tr>
+		    	<h3> Telpon :</h3>
+		        <td th:text="${dealerDetail.noTelp}"></td>
+		     </tr><br><br>
+	     
+		  	<div th:if="${!carList.empty}">
+		  		<h3>CAR LIST:</h3>
+		  	</div>
+			
+			<table th:if="${!carList.empty}" border="2" style="width:300px">
+			    <tr>
+			    	<td> NO </td>
+			        <td> ID </td>
+			        <td> BRAND </td>
+			        <td> TYPE </td>
+			        <td> PRICE </td>
+			        <td> AMOUNT </td>
+			    </tr>
+		    
+		    	<th:block th:each ="car, iter : ${carList}">
+				    <tr>
+				    	<td th:text="${iter.index +1}"></td>
+				        <td th:text="${car.id}"></td>
+						<td th:text="${car.brand}"></td>
+						<td th:text="${car.type}"></td>
+						<td th:text="${car.price}"></td>
+						<td th:text="${car.amount}"></td>
+				    </tr>
+				</th:block>
+			</table>
+			 
+			<h3> Add Car </h3>
+				<td><a th:href="@{'/car/add/' + ${dealerDetail.id}}"> Add </a></td>
+			<br>
+			
+			<h3> Update Car </h3>
+				<td><a th:href="@{'/car/update/' + ${dealerDetail.id}}"> Update </a></td>
+			<br>
+			
+			<h3> Delete Car </h3>
+				<td><a th:href="@{'/car/delete/' + ${dealerDetail.id}}">Delete</a></td>
+			<br><br><br>
+			
+			<h3> Update Dealer </h3>
+				<td><a th:href="@{'/dealer/update/' + ${dealerDetail.id}}"> Update </a></td>	
+			<br>
+						
+			<h3> Delete Dealer </h3>
+				<td><a th:href="@{'/dealer/delete/' + ${dealerDetail.id}}">Delete</a></td>
+			<br><br><br>	
+			
+			<a th:href="@{/}">
+				<button type="submit"> Kembali </button>
+			</a>	
+		</div>
+		 
+		<div th:if="${error}">
+			<h3> Dealer Tidak Ditemukan </h3>
+		</div> 
+	</body>
+</html>

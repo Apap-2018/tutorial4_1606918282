@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title> Home </title>
+	</head>
+	
+	<body>	
+		<h2> Hello! </h2><br>
+		
+		<h3> Add Dealer </h3>
+		<td><a th:href="@{/dealer/add}"> Add </a></td>
+		<br><br>
+		
+		<h3> Find Dealer by ID </h3>
+		<form th:action="@{/dealer/view}" method="GET">
+			Id Dealer: <br>
+			<input type = "text" name = "dealerId"/>
+			<button type="submit"> Find </button>
+		</form><br><br>
+		
+		<h3> View All Dealer </h3>
+		<td><a th:href="@{/dealer/all}">View</a></td>
+		<br><br>
+	</body>
+</html>
